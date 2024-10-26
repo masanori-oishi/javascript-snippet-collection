@@ -1,0 +1,276 @@
+@charset "UTF-8";
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* サンプルモーダルのスタイル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal .close:hover, .modal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ハンバーガーメニューサンプル */
+/* ヘッダーのスタイル */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.header .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.header .hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.header .hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 3px);
+}
+.header .hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.header .hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -3px);
+}
+
+/* ナビゲーションメニューのスタイル */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+}
+.nav-menu ul li {
+  margin-left: 20px;
+}
+.nav-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* モバイル向けスタイル */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-menu {
+    display: none;
+    width: 100%;
+  }
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-menu ul li {
+    margin: 15px 0;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+  /* ハンバーガーアイコンがアクティブ（バツ印）のスタイルは .hamburger.active で定義済み */
+}
+/* アコーディオン全体のスタイル */
+.accordion {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.accordion .accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+.accordion .accordion-item:last-child {
+  border-bottom: none;
+}
+.accordion .accordion-item .accordion-header {
+  background-color: #f7f7f7;
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.accordion .accordion-item .accordion-header:hover {
+  background-color: #e2e2e2;
+}
+.accordion .accordion-item .accordion-header::after {
+  content: "▼";
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+.accordion .accordion-item.active .accordion-header::after {
+  transform: rotate(180deg);
+}
+.accordion .accordion-item.active .accordion-content {
+  max-height: 200px;
+  padding: 15px 20px;
+}
+.accordion .accordion-item .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: #fff;
+  padding: 0 20px;
+}
+
+/* タブ全体のスタイル */
+.tabs {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+.tabs .tab-list {
+  list-style: none;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+}
+.tabs .tab-list .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background-color: #f7f7f7;
+  margin-right: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.tabs .tab-list .tab:hover {
+  background-color: #e2e2e2;
+}
+.tabs .tab-list .tab.active {
+  background-color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+.tabs .tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+  background-color: #fff;
+}
+.tabs .tab-content.active {
+  display: block;
+}
+
+/* ナビゲーションバーのスタイル */
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+}
+.navbar .nav-menu {
+  list-style: none;
+  display: flex;
+}
+.navbar .nav-menu .nav-item {
+  position: relative;
+  margin-right: 20px;
+}
+.navbar .nav-menu .nav-item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+}
+.navbar .nav-menu .nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  list-style: none;
+  min-width: 150px;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.navbar .nav-menu .nav-item .dropdown-menu li a {
+  padding: 10px 15px;
+  color: #fff;
+  white-space: nowrap;
+}
+.navbar .nav-menu .nav-item .dropdown-menu li a:hover {
+  background-color: #555;
+}
+.navbar .nav-menu .nav-item:hover .dropdown-menu, .navbar .nav-menu .nav-item.active .dropdown-menu {
+  display: block;
+}
+
+/* スクロールアニメーションのスタイル */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ヘッダーのスタイル */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* コンテンツセクションのスタイル */
+.content {
+  padding: 40px 20px;
+}
+
+/* ソースマップのコメントはSCSSでは不要なので削除します */
+/* # sourceMappingURL=index.css.map *//*# sourceMappingURL=index.css.map */
